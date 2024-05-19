@@ -1,0 +1,48 @@
+UT5_PD2:
+
+1)
+
+Lenguaje Natural:
+
+Recorro el texto, cuando encuentro una palabra, la inserto en el trie, guardo la referencia a la página en la cuál aparece esa palabra y, además añado la palabra a una lista de palabras, 
+
+cuándo encuentro una palabra la cuál ya está en la lista de palabras, guardo la referencia de en que página aparece, finalmente voy a tener un trie con las palabras del texto y en que páginas aparecen.
+
+Pre Condiciones:
+
+-El libro no debe estar vacío.
+
+Post Condiciones:
+
+-El trie debe tener las palabras del libro y también información acerca de en qué página aparece cada palabra.
+
+-El trie no debe tener 2 palabras repetidas
+
+//ARREGLAR PSEUDOCÓDIGO
+
+PSEUDOCÓDIGO:
+
+NodoTrie insertarPalabrasTexto(String palabrasTexto)
+
+COM
+ nodoActual = this
+ listaPalabrasTexto = nuevaLista
+
+ Para cada caracter car de palabrasTexto hacer
+  unHijo = nodoActual.obtenerHijo(car)
+
+   mientras unHijo <> nulo
+    listaPalabrasTexto.insertar(unHijo)
+    unHijo = unHijo.siguiente
+   fin Mientras
+   si unHijo = nulo
+      unHijo = crearNodotrie
+      nodoActual.agregar(unHijo, car)
+   fin si
+  nodoActual = unHijo
+ fin para cada
+ nodoActual.esFindePalabra = true
+FIN   
+    
+
+
