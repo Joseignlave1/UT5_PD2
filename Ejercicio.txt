@@ -6,7 +6,7 @@ Lenguaje Natural:
 
 Recorro el texto, cuando encuentro una palabra, la inserto en el trie, guardo la referencia a la página en la cuál aparece esa palabra y, además añado la palabra a una lista de palabras, 
 
-cuándo encuentro una palabra la cuál ya está en la lista de palabras, guardo la referencia de en que página aparece, finalmente voy a tener un trie con las palabras del texto y en que páginas aparecen.
+cuándo encuentro una palabra la cuál tiene cada nodo en el trie, guardo la referencia de en que página aparece, pero sin añadirla al trie
 
 Pre Condiciones:
 
