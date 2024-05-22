@@ -11,6 +11,7 @@ cuándo encuentro una palabra la cuál ya está en la lista de palabras, guardo 
 Pre Condiciones:
 
 -El libro no debe estar vacío.
+-El trie debe ser de tamaño 26(las 26 letras del abecedario)
 
 Post Condiciones:
 
@@ -25,24 +26,31 @@ PSEUDOCÓDIGO:
 NodoTrie insertarPalabrasTexto(String palabrasTexto)
 
 COM
- nodoActual = this
- listaPalabrasTexto = nuevaLista
+ TnodoTtrie nodoActual = this O(1)
+ estaEnTrie = false O(1)
+ arrayPaginas = nuevo Array[] O(1)
+ esPalabra = false O(1)
+   para Caracter car en palabrasTexto.longitud O(n)
+        indice = car - 'a'
+        si(nodos.hijos[indice] = nulo) O(1)
+           nodos.hijos[indice] = nuevo TNodoTrie() O(1)
+           arrayPaginas.agregar(palabra.Pagina) O(1)
+           estaEnTrie = false //La palabra no estaba en el trie O(1)
+        SINO
+          estaenTrie = True O(1)
+        nodo = nodo.hijos[indice] O(1)
+        esPalabra = true O(1)
 
- Para cada caracter car de palabrasTexto hacer
-  unHijo = nodoActual.obtenerHijo(car)
+        Si(esPalabra) O(1)
+          Si(estaEnTrie) O(1)
+           arrayPaginas.agregar(palabra.Pagina)  O(1)
+          FIN SI
+       FIN SI
 
-   mientras unHijo <> nulo
-    listaPalabrasTexto.insertar(unHijo)
-    unHijo = unHijo.siguiente
-   fin Mientras
-   si unHijo = nulo
-      unHijo = crearNodotrie
-      nodoActual.agregar(unHijo, car)
-   fin si
-  nodoActual = unHijo
- fin para cada
- nodoActual.esFindePalabra = true
-FIN   
-    
+FIN
 
+Tiempo de ejecución O(n)
+          
+
+3- En el caso de Programa, debido a qué cada nodo de esta palabra se encuentra en el trie, se realizarán 8 comparaciónes.
 
