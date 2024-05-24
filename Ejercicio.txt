@@ -60,7 +60,7 @@ Tiempo de ejecución O(n)
    En el caso de cazadores, primero buscará la c, después buscará la a, después la z, después la a nuevamente, al buscar la d, no tendrá éxito,
    totalmente realizará 5 comparaciónes.
    La altúra del Trie es de 12.
-   El tamaño del trie es de 
+   El tamaño del trie es de 46
 
 4- Lenguaje natural: Recorremos el Trie, buscando cada nodo de la palabra, si tuvimos éxito, entonces la palabra esta en el trie, extraemos de la lista del array de páginas que tiene las páginas en las que se encuentra
 cada palabra del trie, y las devolvemos, si la búsqueda no tiene éxito, devolvemos que esa palabra no se encuentra en el Trie.
