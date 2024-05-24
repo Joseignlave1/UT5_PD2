@@ -17,7 +17,7 @@ Post Condiciones:
 
 -El trie debe tener las palabras del libro y también información acerca de en qué página aparece cada palabra.
 
--El trie no debe tener 2 palabras repetidas
+-No se debe insertar en el trie, cada nodo de una palabra dos veces.
 
 //ARREGLAR PSEUDOCÓDIGO
 
@@ -37,13 +37,15 @@ COM
            arrayPaginas.agregar(palabra.Pagina) O(1)
            estaEnTrie = false //La palabra no estaba en el trie O(1)
         SINO
-          estaenTrie = True O(1)
+          estaenTrie = True O(1) 
+        FIN SI
         nodo = nodo.hijos[indice] O(1)
+   FIN PARA CADA
         esPalabra = true O(1)
 
         Si(esPalabra) O(1)
           Si(estaEnTrie) O(1)
-           arrayPaginas.agregar(palabra.Pagina)  O(1)
+           arrayPaginas.agregar(palabra.Pagina)  O(1) //Si ya estaba en el trie, entonces solo agregamos la página en la qué se encuentra.
           FIN SI
        FIN SI
 
@@ -52,5 +54,50 @@ FIN
 Tiempo de ejecución O(n)
           
 
-3- En el caso de Programa, debido a qué cada nodo de esta palabra se encuentra en el trie, se realizarán 8 comparaciónes.
+3- En el caso de Programa, debido a qué cada nodo de esta palabra se encuentra en el trie(la palabra ya se agregó anteriormente), se realizarán 8 comparaciónes.
+   En el caso de Proselitismo, debido a qué hay nodos de esta palabra que no se encuentran en el trie, el algoritmo de búsqueda, buscará primero la P, tendrá éxito, después la r, o, y cuándo busca la s no tendrá éxito,
+   , totalmente realizará 4 comparaciónes.
+   En el caso de cazadores, primero buscará la c, después buscará la a, después la z, después la a nuevamente, al buscar la d, no tendrá éxito,
+   totalmente realizará 5 comparaciónes.
+   La altúra del Trie es de 12.
+   El tamaño del trie es de 
+
+4- Lenguaje natural: Recorremos el Trie, buscando cada nodo de la palabra, si tuvimos éxito, entonces la palabra esta en el trie, extraemos de la lista del array de páginas que tiene las páginas en las que se encuentra
+cada palabra del trie, y las devolvemos, si la búsqueda no tiene éxito, devolvemos que esa palabra no se encuentra en el Trie.
+
+Pre Condiciones:
+-El Libro no debe estar vacío.
+-El trie debe ser de tamaño 26(las 26 letras del alfabeto)
+-Tengo un array que contiene las páginas en las que aparece cada palabra. 
+
+Post Condiciones:
+-El algoritmo debe devolver todas las páginas en las que se encuentre esa palabra en el trie.
+-Si la palabra no está en el trie, debe devolver nulo
+
+
+COM
+ TnodoTrie buscarPalabrasTrie(String palabrasTexto)
+ TnodoTrie nodoActual = this;
+ esPalabra = false
+ arrayPaginasPalabraEspecifica = nuevo Array
+
+ Para cada Caracter car en palabrasTexto.longitud O(n)
+   indice = car - 'a' O(1)
+   nodo = nodo.hijos[indice] O(1)
+   si nodo = nulo  O(1)
+      esPalabra = false  O(1)
+   SINO O(1)  
+     esPalabra = true;  O(1) 
+  FIN PARA CADA
+    si (nodoActual.esPalabra)  O(1) 
+        devolver nodoActual.arrayPaginas O(1)
+    SINO
+     devolver nulo  //No encontramos la palabra en el trie.  O(1)
+
+
+Tiempo de ejecución del algoritmo O(n)
+      
+  
+
+  
 
